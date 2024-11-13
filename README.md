@@ -1,6 +1,6 @@
-# React To-Do List App
+# To-Do List App
 
-This is a simple CRUD (Create, Read, Update, Delete) To-Do List application built with React. The app allows users to manage their tasks by adding, editing, deleting, and viewing to-do items.
+This is a simple CRUD (Create, Read, Update, Delete) To-Do List application built with HTML,CSS , JS && Node.js with MangoDB. The app allows users to manage their tasks by adding, editing, deleting, and viewing to-do items.
 
 ## Features
 
@@ -11,7 +11,8 @@ This is a simple CRUD (Create, Read, Update, Delete) To-Do List application buil
 
 ## Screenshots
 
-![To-Do List Screenshot](./screenshot.png)
+![image](https://github.com/user-attachments/assets/427509dd-4277-4b59-a4df-49e00ef2e4c1)
+
 
 ## Project Structure
 
