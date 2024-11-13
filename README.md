@@ -25,4 +25,4 @@ The main files for the application are:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/react-todo-list.git
+   git clone https://github.com/Sinethemba7vitsha/TodoListProject.git
