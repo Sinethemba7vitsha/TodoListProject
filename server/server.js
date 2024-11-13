@@ -15,8 +15,42 @@ mongoose.connect(mongoURI)
   .catch((err) => console.log('Error connecting to MongoDB Atlas:', err));
 
 // Task schema and model
-const taskSchema = new mongoose.Schema({ description: String });
+const taskSchema = new mongoose.Schema({ 
+  description: String,
+  completed: { type: Boolean, default: false }  // New field for task completion status
+});
 const Task = mongoose.model('Task', taskSchema);
+
+app.put('/tasks/:id/toggle', async (req, res) => {
+  try {
+    const task = await Task.findById(req.params.id);
+    task.completed = !task.completed;
+    await task.save();
+    res.json(task);
+  } catch (err) {
+    res.status(500).json({ message: 'Error updating task' });
+  }
+});
+
+// Update task description
+app.put('/tasks/:id', async (req, res) => {
+  try {
+    const updatedTask = await Task.findByIdAndUpdate(
+      req.params.id,
+      { description: req.body.description },
+      { new: true } // Return the updated task
+    );
+
+    if (updatedTask) {
+      res.json(updatedTask);
+    } else {
+      res.status(404).json({ message: 'Task not found' });
+    }
+  } catch (err) {
+    res.status(500).json({ message: 'Error updating task' });
+  }
+});
+
 
 // Get all tasks
 app.get('/tasks', async (req, res) => {

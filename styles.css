@@ -1,30 +1,199 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: wheat;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #EAEAEA;
+}
+
 .container {
-    width: 300px;
-    margin: 0 auto;
-    text-align: center;
-  }
+  background: #131418;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  width: 620px;
+  max-width: 90%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.2em;
+  color: #FFFFFF;
+  letter-spacing: 1.5px;
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Input Container for Horizontal Alignment */
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#taskInput {
+  flex: 1; /* Takes up remaining space */
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.15);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#taskInput::placeholder {
+  color: #B0B0B0;
+}
+
+#taskInput:focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Button Styling */
+button {
+  padding: 15px 25px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  color: #FFFFFF;
+  background-color: grey;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-left: 10px; /* Adds space between input and button */
+}
+
+button:hover {
   
-  #taskInput {
-    width: 80%;
-    padding: 8px;
-    margin-bottom: 10px;
-  }
-  
-  button {
-    padding: 8px 12px;
-    margin: 5px;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    padding: 8px;
-    display: flex;
-    justify-content: space-between;
-    background-color: #f4f4f4;
-    margin-bottom: 5px;
-  }
-  
+  transform: translateY(-2px);
+}
+
+/* Task List Styles */
+#taskList {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s;
+}
+
+li:hover {
+  transform: translateY(-3px);
+}
+
+/* Task Text */
+.task-text {
+  flex: 1;
+  color: #EAEAEA;
+  font-size: 1.1em;
+  padding-right: 15px;
+  word-break: break-word;
+}
+
+/* Edit and Delete Button Styles */
+.edit-btn, .delete-btn {
+  padding: 8px 15px;
+  font-size: 0.9em;
+  margin-left: 8px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+/* Edit Input Styling */
+.edit-input {
+  flex: 1;
+  padding: 8px;
+  font-size: 1em;
+  color: #EAEAEA;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #B0B0B0;
+  border-radius: 5px;
+  outline: none;
+}
+
+
+.edit-btn {
+ 
+}
+
+.edit-btn:hover {
+
+}
+
+.delete-btn {
+  background-color: red;
+}
+
+.delete-btn:hover {
+ 
+}
+
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: black;
+  padding: 90px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  color: white;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content:space-evenly;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.modal-buttons button:first-child {
+  background-color: #8BC34A; /* Save button */
+}
+
+.modal-buttons button:last-child {
+  background-color: #FF5757; /* Cancel button */
+}
+
+
