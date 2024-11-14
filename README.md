@@ -11,7 +11,8 @@ This is a simple CRUD (Create, Read, Update, Delete) To-Do List application buil
 
 ## Screenshots
 
-![image](https://github.com/user-attachments/assets/427509dd-4277-4b59-a4df-49e00ef2e4c1)
+![image](https://github.com/user-attachments/assets/09140f2b-08ce-4980-a1d6-8ee32ffe63b3)
+
 
 
 ## Project Structure
