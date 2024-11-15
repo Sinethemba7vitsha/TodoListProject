@@ -83,6 +83,19 @@ app.delete('/tasks/:id', async (req, res) => {
   }
 });
 
+
+// Toggle task completion status
+app.put('/tasks/:id/toggle', async (req, res) => {
+  try {
+    const task = await Task.findById(req.params.id);
+    task.completed = !task.completed;
+    await task.save();
+    res.json(task);
+  } catch (err) {
+    res.status(500).json({ message: 'Error updating task' });
+  }
+});
+
 // Start server
 app.listen(3000, () => {
   console.log('Server running on http://localhost:3000');

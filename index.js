@@ -12,6 +12,18 @@ async function fetchTasks() {
       const li = document.createElement('li');
       li.setAttribute('data-id', task._id);
 
+      // Add 'completed' class if the task is marked as done
+      if (task.completed) {
+        li.classList.add('completed');
+      }
+
+      // Checkbox to mark as done
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.checked = task.completed;
+      checkbox.classList.add('done-checkbox');
+      checkbox.onchange = () => toggleDone(task._id);
+
       const taskText = document.createElement('span');
       taskText.textContent = task.description;
       taskText.classList.add('task-text');
@@ -26,6 +38,8 @@ async function fetchTasks() {
       deleteBtn.classList.add('delete-btn');
       deleteBtn.onclick = () => deleteTask(task._id);
 
+      // Append elements to the task item
+      li.appendChild(checkbox);
       li.appendChild(taskText);
       li.appendChild(editBtn);
       li.appendChild(deleteBtn);
@@ -50,7 +64,6 @@ function closeModal() {
   editTaskId = null;
 }
 
-
 // Save the edited task
 async function saveEdit() {
   const newDescription = document.getElementById('editTaskInput').value.trim();
@@ -63,7 +76,7 @@ async function saveEdit() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ description: newDescription }), // Send the updated description
+      body: JSON.stringify({ description: newDescription }),
     });
 
     // Check if the update was successful
@@ -71,13 +84,12 @@ async function saveEdit() {
       closeModal(); // Close the modal on success
       fetchTasks(); // Refresh the task list
     } else {
-      console.error('Failed to save task:', response.status);
+      console.error('Failed to save task');
     }
   } catch (error) {
     console.error('Error saving task:', error);
   }
 }
-
 
 // Add a new task to the backend
 async function addTask() {
@@ -115,6 +127,23 @@ async function deleteTask(taskId) {
     fetchTasks(); // Refresh the task list
   } catch (error) {
     console.error('Error deleting task:', error);
+  }
+}
+
+// Toggle task completion status
+async function toggleDone(taskId) {
+  try {
+    const response = await fetch(`http://localhost:3000/tasks/${taskId}/toggle`, {
+      method: 'PUT',
+    });
+
+    if (response.ok) {
+      fetchTasks(); // Refresh the task list to reflect the change
+    } else {
+      console.error('Failed to toggle task status');
+    }
+  } catch (error) {
+    console.error('Error toggling task status:', error);
   }
 }
 

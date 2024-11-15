@@ -197,3 +197,10 @@ li:hover {
 }
 
 
+/* CSS for completed tasks */
+.completed {
+  opacity: 0.5; /* Reduce opacity to create a blur effect */
+  filter: blur(2px); /* Apply blur */
+  text-decoration: line-through; /* Optional: strike through text */
+  transition: all 0.3s ease; /* Smooth transition */
+}
