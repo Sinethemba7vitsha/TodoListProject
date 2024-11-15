@@ -22,6 +22,14 @@ The main files for the application are:
 - `App.jsx`: Contains the main logic and UI for the to-do list, including all CRUD operations.
 - `index.css`: Basic styling for the application.
 
+## Running The Project 
+ - Clone the project into your machine
+ - Open the project in Visual Studio Code 
+ - Open Terminal type "cd Server"
+ - On the same Terminal Run Node Server.js to run backend(Serverside)
+ - Then run the frontend using live-server
+ - Test for CRUD operations 
+
 ## Installation
 
 1. Clone the repository:
